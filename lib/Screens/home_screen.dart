@@ -28,16 +28,21 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   //* Go to new page
-  void goToNewPage(Note note, bool isNewNote ) {
+  void goToNewPage(Note note, bool isNewNote) {
     Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => EditingNotePage(
-            isNewNote: false, 
-            note: note,
-          ),
+      context,
+      MaterialPageRoute(
+        builder: (context) => EditingNotePage(
+          isNewNote: false,
+          note: note,
         ),
-      );
+      ),
+    );
+  }
+
+  //* Delete notes
+  void deleteNote(Note note) {
+    Provider.of<NoteData>(context, listen: false).deleteNote(note);
   }
 
   @override
