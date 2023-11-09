@@ -24,16 +24,19 @@ class _HomeScreenState extends State<HomeScreen> {
     );
 
     //* Got edit the page
-    goToNewPage();
+    goToNewPage(newNote, true);
   }
 
   //* Go to new page
-  void goToNewPage() {
+  void goToNewPage(Note note, bool isNewNote ) {
     Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => EditingNotePage(),
-        )
+          builder: (context) => EditingNotePage(
+            isNewNote: false, 
+            note: note,
+          ),
+        ),
       );
   }
 
