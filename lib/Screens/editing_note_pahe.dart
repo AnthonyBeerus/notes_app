@@ -44,12 +44,26 @@ class _EditingNotePageState extends State<EditingNotePage> {
     String text = _controller.document.toPlainText();
 
     //*Add the new note
-    Provider.of<NoteData>(context, listen: false).addNewNote(
-      Note(
-        id: id, 
-        text: text,
-      ),
-    );
+    Provider
+      .of<NoteData>(context, listen: false)
+      .addNewNote(
+        Note(
+          id: id,
+          text: text,
+        ),
+      );
+  }
+
+  //* update note
+  void updateNote(Note note) {
+    //*get test from editor
+    String text = _controller.document.toPlainText();
+    //* Update the note
+    Provider
+      .of<NoteData>(context, listen: false)
+      .updateNote(
+        note, text
+      );
   }
 
   @override
