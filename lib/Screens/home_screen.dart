@@ -54,8 +54,10 @@ class _HomeScreenState extends State<HomeScreen> {
         //   backgroundColor: Theme.of(context).colorScheme.background,
         //   title: const Text('NOTES'),
         // ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton(
           onPressed: createNewNote,
+          backgroundColor: Theme.of(context).colorScheme.primary,
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
