@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/Models/note.dart';
 
 class EditingNotePage extends StatefulWidget {
-  const EditingNotePage({super.key});
+  Note note;
+  bool isNewNote;
+
+  EditingNotePage({
+    super.key,
+    required this.note,
+    required this.isNewNote,
+  });
 
   @override
   State<EditingNotePage> createState() => _EditingNotePageState();
