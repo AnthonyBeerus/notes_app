@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/Models/note.dart';
 import 'package:flutter_quill/flutter_quill.dart';
+import 'package:notes_app/Models/note_data.dart';
+import 'package:provider/provider.dart';
 
 class EditingNotePage extends StatefulWidget {
   Note note;
@@ -30,10 +32,24 @@ class _EditingNotePageState extends State<EditingNotePage> {
     final doc = Document()..insert(0, widget.note.text);
     setState(() {
       _controller = QuillController(
-        document: doc, 
+        document: doc,
         selection: const TextSelection.collapsed(offset: 0),
       );
     });
+  }
+
+  //* Add new note
+  void addNewNote(int id) {
+    //* Get text from editor
+    String text = _controller.document.toPlainText();
+
+    //*Add the new note
+    Provider.of<NoteData>(context, listen: false).addNewNote(
+      Note(
+        id: id, 
+        text: text,
+      ),
+    );
   }
 
   @override
