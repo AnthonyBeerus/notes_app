@@ -70,6 +70,9 @@ class _EditingNotePageState extends State<EditingNotePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.background,
+      ),
     );
   }
 }
